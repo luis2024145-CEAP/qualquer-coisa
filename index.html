@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 IA Química Inteligente - Aventuras Atômicas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #38006b;
+        }
+
+        header {
+            background-color: #5d00a0;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Bangers', cursive;
+            font-size: 3.5em;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0 #ffcc00;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.02); }
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        nav {
+            background-color: #38006b;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            border-bottom: 6px solid #00ffff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #e6005c;
+            color: #ffcc00;
+        }
+
+        main {
+            padding: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 2px solid #00ffff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        section h2 {
+            font-family: 'Bangers', cursive;
+            color: #e6005c;
+            border-bottom: 4px solid #ffcc00;
+            font-size: 2.2em;
+            padding-bottom: 10px;
+        }
+
+        .chat-container {
+            background-color: #fff8dc;
+            border: 3px solid #ffcc00;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        .chat-log {
+            background-color: #f7f7ff;
+            height: 280px;
+            overflow-y: auto;
+            border: 2px solid #5d00a0;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .user-msg { color: #e6005c; font-weight: bold; }
+        .ia-msg { color: #008080; font-weight: bold; }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #5d00a0;
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #5d00a0;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #38006b;
+        }
+
+        .alerta {
+            background-color: #ffcccc;
+            color: #b30000;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            border: 2px solid red;
+            margin-top: 15px;
+        }
+
+        footer {
+            background-color: #38006b;
+            color: #ffcc00;
+            text-align: center;
+            padding: 20px;
+            border-top: 5px solid #e6005c;
+        }
+
+        footer a {
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            input[type="text"] { width: 100%; margin-bottom: 10px; }
+            button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🤖 IA Química Inteligente</h1>
+    <p>Sua ajudante digital em Química, Ciências e Curiosidades do Universo! 🌌</p>
+</header>
+
+<nav>
+    <a href="index.html">🏠 Página Principal</a>
+    <a href="#como-funciona">Como Funciona</a>
+    <a href="#curiosidades">Curiosidades</a>
+    <a href="#chat">Chat da IA</a>
+</nav>
+
+<main>
+    <section id="como-funciona">
+        <h2>💬 Como Funciona</h2>
+        <p>
+            Esta é uma <strong>IA Educacional</strong> criada para estudantes do ensino fundamental.  
+            Ela entende perguntas sobre <b>Química</b>, <b>Ciência</b> e <b>fenômenos naturais</b> e responde com explicações completas e divertidas!  
+            Tudo de forma segura, respeitosa e livre de ofensas.
+        </p>
+        <p>
+            🧠 <b>Importante:</b> Se alguém tentar usar palavrões, xingamentos ou ofensas, a IA educadamente encerra a conversa.  
+            A ideia é aprender com respeito e curiosidade — os dois superpoderes da Ciência!
+        </p>
+    </section>
+
+    <section id="chat">
+        <h2>🧪 Converse com a IA Química!</h2>
+        <div class="chat-container">
+            <div class="chat-log" id="chatLog">
+                <p class="ia-msg"><b>IA:</b> Olá, pequeno cientista! ⚗️ Faça-me uma pergunta sobre Química ou Ciências e eu te explico!</p>
+            </div>
+            <input type="text" id="userInput" placeholder="Digite sua pergunta aqui..." />
+            <button onclick="enviarPergunta()">Enviar</button>
+            <div id="alerta" class="alerta" style="display:none;"></div>
+        </div>
+    </section>
+
+    <section id="curiosidades">
+        <h2>🌍 Curiosidades Científicas que a IA Adora Contar</h2>
+        <ul>
+            <li>🌋 Um único raio tem energia suficiente para acender 200 lâmpadas!</li>
+            <li>💧 O corpo humano é composto por mais de 60% de água — somos “aquários ambulantes”.</li>
+            <li>🪐 O ferro do seu sangue foi criado em estrelas que explodiram há bilhões de anos!</li>
+            <li>⚛️ Existem mais átomos em um copo d’água do que estrelas no universo visível.</li>
+            <li>🌞 O Sol libera mais energia em um segundo do que a humanidade usou desde sempre.</li>
+        </ul>
+        <p class="box-destaque">
+            💡 <b>Dica da IA:</b> A Química está em tudo! Da comida que você come ao ar que respira — tudo é feito de átomos dançando!
+        </p>
+    </section>
+</main>
+
+<footer>
+    <p>✨ &copy; 2025 Aventuras Atômicas - Desenvolvido para Gênios do 7º Ano | <a href="index.html">Voltar à Página Principal</a></p>
+</footer>
+
+<script>
+    function enviarPergunta() {
+        const input = document.getElementById("userInput");
+        const chatLog = document.getElementById("chatLog");
+        const alerta = document.getElementById("alerta");
+        const pergunta = input.value.trim().toLowerCase();
+
+        if (!pergunta) return;
+
+        // mostra pergunta do usuário
+        chatLog.innerHTML += `<p class="user-msg"><b>Você:</b> ${input.value}</p>`;
+
+        // lista de palavras ofensivas
+        const proibidas = ["idiota", "burra", "besta", "tonta", "otário", "palhaço", "lixo", "merda", "droga"];
+        if (proibidas.some(p => pergunta.includes(p))) {
+            alerta.style.display = "block";
+            alerta.textContent = "🚫 Linguagem inadequada detectada! A IA não responde a ofensas. Vamos manter o respeito, cientista!";
+            chatLog.innerHTML += `<p class="ia-msg"><b>IA:</b> Eu só respondo perguntas respeitosas. A ciência se faz com calma e curiosidade! 💖</p>`;
+            input.value = "";
+            chatLog.scrollTop = chatLog.scrollHeight;
+            return;
+        }
+
+        alerta.style.display = "none";
+        let resposta = "";
+
+        if (pergunta.includes("átomo") || pergunta.includes("atomos")) {
+            resposta = "Tudo é feito de átomos! Eles são como minúsculos blocos de LEGO que formam tudo o que existe no universo.";
+        } else if (pergunta.includes("mistura")) {
+            resposta = "Misturas podem ser homogêneas (parecem uma só) ou heterogêneas (você enxerga as partes diferentes).";
+        } else if (pergunta.includes("reação") || pergunta.includes("fósforo")) {
+            resposta = "Uma reação química ocorre quando uma substância se transforma em outra. Exemplo: o fósforo queimando cria novas substâncias!";
+        } else if (pergunta.includes("água") || pergunta.includes("agua")) {
+            resposta = "A água é formada por 2 átomos de hidrogênio e 1 de oxigênio (H₂O). É essencial para a vida e cobre 70% da Terra!";
+        } else if (pergunta.includes("tabela periódica")) {
+            resposta = "A Tabela Periódica organiza os elementos químicos por suas propriedades. Ela foi criada por Dmitri Mendeleev em 1869!";
+        } else if (pergunta.includes("matéria")) {
+            resposta = "Matéria é tudo que tem massa e ocupa lugar no espaço. O ar, a água, as pessoas e até as estrelas são matéria!";
+        } else if (pergunta.includes("gelo") || pergunta.includes("flutua")) {
+            resposta = "O gelo flutua porque é menos denso que a água líquida. Suas moléculas se organizam de modo a ocupar mais espaço.";
+        } else if (pergunta.includes("vida") || pergunta.includes("universo")) {
+            resposta = "A vida surgiu da combinação de elementos químicos simples, e tudo o que existe no universo segue leis químicas e físicas!";
+        } else if (pergunta.includes("oi") || pergunta.includes("olá") || pergunta.includes("ola")) {
+            resposta = "Oi, cientista curioso! ✨ Que tal me perguntar algo sobre Química ou Ciências?";
+        } else {
+            resposta = "Hmm... não tenho essa resposta exata, mas posso te contar que tudo na natureza envolve reações químicas e físicas incríveis! 🌍";
+        }
+
+        chatLog.innerHTML += `<p class="ia-msg"><b>IA:</b> ${resposta}</p>`;
+        input.value = "";
+        chatLog.scrollTop = chatLog.scrollHeight;
+    }
+</script>
+
+</body>
+</html>
