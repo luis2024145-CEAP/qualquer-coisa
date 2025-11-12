@@ -1,74 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aventuras Matemáticas</title>
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  body { font-family: 'Open Sans', sans-serif; background-color: #f0f8ff; color: #38006b; margin:0; }
-  header { background-color: #5d00a0; color: white; padding: 40px 20px; text-align: center; box-shadow: 0 6px 12px rgba(0,0,0,0.3);}
-  header h1 { font-family: 'Bangers', cursive; font-size: 3.5em; text-shadow: 3px 3px 0 #ffcc00; margin:0;}
-  header p { font-size: 1.2em; font-style: italic;}
-  nav { background-color: #38006b; border-bottom: 7px solid #00ffff; display:flex; justify-content:center; }
-  nav a { color:white; text-decoration:none; padding:15px 25px; font-weight:bold; text-transform:uppercase; transition:0.3s;}
-  nav a:hover { background-color:#e6005c; color:#ffcc00;}
-  main { padding:30px; max-width:900px; margin:auto;}
-  section { margin-bottom:30px; }
-  h2 { color:#5d00a0; text-shadow: 2px 2px 0 #ffcc00; }
-  p { line-height:1.6; }
-  footer { background-color: #38006b; color:#ffcc00; text-align:center; padding:20px; border-top:5px solid #e6005c; }
-  footer a { color:#00ffff; text-decoration:none; font-weight:bold;}
-  footer a:hover { color:#ffcc00;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matemática Interativa</title>
+  <style>
+    /* Reset e fonte */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: #f5f5f7; color: #333; scroll-behavior: smooth; }
+
+    /* Navbar */
+    nav {
+      position: fixed; top: 0; width: 100%; background: #4CAF50; color: #fff;
+      padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    nav a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: bold; transition: 0.3s; }
+    nav a:hover { color: #ffeb3b; }
+
+    /* Seções */
+    section { padding: 100px 20px; min-height: 100vh; opacity: 0; transform: translateY(50px); transition: all 0.8s ease-in-out; }
+    section.show { opacity: 1; transform: translateY(0); }
+    h1, h2 { margin-bottom: 20px; }
+    p { line-height: 1.6; margin-bottom: 20px; }
+
+    /* Botões */
+    button { background: #4CAF50; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; transition: 0.3s; }
+    button:hover { background: #45a049; }
+
+    /* Cards de conteúdo */
+    .card { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; transition: 0.3s; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 12px rgba(0,0,0,0.2); }
+
+    /* IA */
+    #ia-container { background: #e8f5e9; padding: 40px 20px; border-radius: 10px; max-width: 700px; margin: auto; }
+    #chat { max-height: 400px; overflow-y: auto; margin-bottom: 20px; }
+    .message { padding: 10px 15px; border-radius: 10px; margin-bottom: 10px; width: fit-content; max-width: 80%; }
+    .user { background: #c8e6c9; align-self: flex-end; }
+    .ai { background: #4caf50; color: #fff; align-self: flex-start; }
+    #input-area { display: flex; gap: 10px; }
+    #input-area input { flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>Aventuras Matemáticas</h1>
-  <p>Aprenda matemática de forma divertida e clara!</p>
-</header>
+  <!-- Navbar -->
+  <nav>
+    <div><strong>Matemática Interativa</strong></div>
+    <div>
+      <a href="#home">Início</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a href="#ia">IA Matemática</a>
+    </div>
+  </nav>
 
-<nav>
-  <a href="index.html">🏠 Início</a>
-  <a href="ia.html">🤖 IA Matemática</a>
-</nav>
-
-<main>
-  <section>
-    <h2>Aritmética</h2>
-    <p>Aprenda sobre números, operações básicas como adição, subtração, multiplicação e divisão, frações e porcentagens.</p>
+  <!-- Página inicial -->
+  <section id="home">
+    <h1>Bem-vindo à Matemática Interativa</h1>
+    <p>Aprenda matemática de forma fácil, divertida e visual. Explore tópicos desde aritmética até cálculo avançado, com exemplos e animações!</p>
   </section>
 
-  <section>
-    <h2>Álgebra</h2>
-    <p>Descubra como resolver equações, simplificar expressões e trabalhar com incógnitas e fórmulas matemáticas.</p>
+  <!-- Conteúdo -->
+  <section id="conteudo">
+    <h2>Seções de Aprendizado</h2>
+
+    <div class="card">
+      <h3>Aritmética</h3>
+      <p>Operações básicas: soma, subtração, multiplicação e divisão. Aprenda com exemplos interativos.</p>
+    </div>
+
+    <div class="card">
+      <h3>Álgebra</h3>
+      <p>Resolução de equações, inequações e simplificação de expressões algébricas passo a passo.</p>
+    </div>
+
+    <div class="card">
+      <h3>Geometria</h3>
+      <p>Estude figuras, áreas, volumes e ângulos com exemplos visuais e exercícios práticos.</p>
+    </div>
+
+    <div class="card">
+      <h3>Funções e Gráficos</h3>
+      <p>Funções lineares, quadráticas e exponenciais com gráficos animados para facilitar o entendimento.</p>
+    </div>
+
+    <div class="card">
+      <h3>Cálculo</h3>
+      <p>Derivadas, integrais e limites explicados de forma clara, com exemplos resolvidos passo a passo.</p>
+    </div>
   </section>
 
-  <section>
-    <h2>Geometria</h2>
-    <p>Explore formas, ângulos, áreas e perímetros de figuras planas e tridimensionais.</p>
+  <!-- IA Matemática -->
+  <section id="ia">
+    <h2>IA Matemática</h2>
+    <p>Faça qualquer pergunta sobre matemática e receba explicações detalhadas e passo a passo.</p>
+
+    <div id="ia-container">
+      <div id="chat" style="display:flex; flex-direction:column;"></div>
+      <div id="input-area">
+        <input type="text" id="user-input" placeholder="Digite sua pergunta...">
+        <button onclick="sendMessage()">Enviar</button>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Trigonometria</h2>
-    <p>Aprenda sobre seno, cosseno, tangente e como aplicá-los em triângulos e situações do mundo real.</p>
-  </section>
+  <script>
+    // Animação de scroll das seções
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100) section.classList.add('show');
+      });
+    });
 
-  <section>
-    <h2>Cálculo</h2>
-    <p>Introdução a derivadas, integrais e limites, com explicações passo a passo para entender cada conceito.</p>
-  </section>
+    // IA Simples (simulação)
+    const chat = document.getElementById('chat');
+    const input = document.getElementById('user-input');
 
-  <section>
-    <h2>Curiosidades Matemáticas</h2>
-    <p>Descubra fatos divertidos, padrões numéricos e enigmas que desafiam a mente!</p>
-  </section>
-</main>
+    async function sendMessage() {
+      const userText = input.value.trim();
+      if(!userText) return;
+      
+      // Mensagem do usuário
+      const userMsg = document.createElement('div');
+      userMsg.className = 'message user';
+      userMsg.textContent = userText;
+      chat.appendChild(userMsg);
+      chat.scrollTop = chat.scrollHeight;
+      input.value = '';
 
-<footer>
-  <p>© 2025 Aventuras Matemáticas | <a href="ia.html">Ir para a IA Matemática</a></p>
-</footer>
+      // Mensagem da IA (simulação com delay)
+      const aiMsg = document.createElement('div');
+      aiMsg.className = 'message ai';
+      aiMsg.textContent = 'Calculando...';
+      chat.appendChild(aiMsg);
+      chat.scrollTop = chat.scrollHeight;
+
+      // Resposta simulada (pode integrar API real depois)
+      setTimeout(() => {
+        aiMsg.textContent = `Resposta passo a passo para: "${userText}"\n\n[Exemplo de solução detalhada aqui]`;
+      }, 1000);
+    }
+  </script>
 
 </body>
 </html>
