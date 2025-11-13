@@ -3,146 +3,345 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matemática Interativa</title>
+  <title>Matemática Futurista - IA Neon</title>
   <style>
-    /* Reset e fonte */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-    body { background: #f5f5f7; color: #333; scroll-behavior: smooth; }
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    * { box-sizing: border-box; }
 
-    /* Navbar */
-    nav {
-      position: fixed; top: 0; width: 100%; background: #4CAF50; color: #fff;
-      padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at center, #001f3f, #000814);
+      overflow-x: hidden;
+      color: #b8f7ff;
+      animation: fadeIn 1s ease-in-out;
     }
-    nav a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: bold; transition: 0.3s; }
-    nav a:hover { color: #ffeb3b; }
 
-    /* Seções */
-    section { padding: 100px 20px; min-height: 100vh; opacity: 0; transform: translateY(50px); transition: all 0.8s ease-in-out; }
-    section.show { opacity: 1; transform: translateY(0); }
-    h1, h2 { margin-bottom: 20px; }
-    p { line-height: 1.6; margin-bottom: 20px; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-    /* Botões */
-    button { background: #4CAF50; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; transition: 0.3s; }
-    button:hover { background: #45a049; }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #001a33, #000);
+      border-bottom: 2px solid #00ffff;
+      box-shadow: 0 0 25px #00ffff55;
+    }
 
-    /* Cards de conteúdo */
-    .card { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; transition: 0.3s; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 12px rgba(0,0,0,0.2); }
+    header h1 {
+      font-size: 3em;
+      color: #00ffff;
+      text-shadow: 0 0 20px #00ffff, 0 0 50px #00b3b3;
+      letter-spacing: 2px;
+    }
 
-    /* IA */
-    #ia-container { background: #e8f5e9; padding: 40px 20px; border-radius: 10px; max-width: 700px; margin: auto; }
-    #chat { max-height: 400px; overflow-y: auto; margin-bottom: 20px; }
-    .message { padding: 10px 15px; border-radius: 10px; margin-bottom: 10px; width: fit-content; max-width: 80%; }
-    .user { background: #c8e6c9; align-self: flex-end; }
-    .ai { background: #4caf50; color: #fff; align-self: flex-start; }
-    #input-area { display: flex; gap: 10px; }
-    #input-area input { flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+    header p {
+      font-size: 1.2em;
+      color: #a8e6ff;
+    }
+
+    /* Seção de introdução futurista */
+    .intro {
+      max-width: 1000px;
+      margin: 40px auto 60px auto;
+      padding: 40px;
+      background: rgba(0, 15, 40, 0.85);
+      border-radius: 20px;
+      box-shadow: 0 0 40px #00ffff55;
+      text-align: center;
+      border: 1px solid #00ffff33;
+    }
+
+    .intro h2 {
+      font-size: 2.5em;
+      color: #00ffff;
+      text-shadow: 0 0 20px #00ffff, 0 0 50px #00b3b3;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      color: #b8f7ff;
+      margin-bottom: 20px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 40px;
+      background: rgba(0, 15, 40, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 0 30px #00ffff33;
+    }
+
+    h2 {
+      color: #00ffff;
+      border-left: 5px solid #00ffff;
+      padding-left: 10px;
+      margin-top: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    p, li {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    ul {
+      background: rgba(0, 255, 255, 0.05);
+      border: 1px solid #00ffff33;
+      padding: 20px;
+      border-radius: 10px;
+      list-style: none;
+    }
+
+    li::before {
+      content: "💠 ";
+    }
+
+    .ai-box {
+      margin-top: 70px;
+      background: rgba(0, 0, 20, 0.8);
+      padding: 50px;
+      border-radius: 20px;
+      border: 1px solid #00ffff55;
+      box-shadow: 0 0 40px #00ffff33;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ai-box::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 180deg, transparent, #00ffff33, transparent 60%);
+      animation: spin 6s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .ai-box * { position: relative; z-index: 1; }
+
+    input {
+      width: 80%;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(0,255,255,0.15);
+      color: #00ffff;
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      background: rgba(0,255,255,0.3);
+      outline: none;
+    }
+
+    button {
+      background: #00ffff;
+      color: #001f2f;
+      font-weight: bold;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00ffff99;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ffff;
+    }
+
+    #output {
+      margin-top: 25px;
+      font-size: 1.3em;
+      color: #b8faff;
+      background: rgba(0, 255, 255, 0.05);
+      border: 1px solid #00ffff33;
+      border-radius: 12px;
+      padding: 15px;
+      min-height: 50px;
+      transition: 0.4s;
+    }
+
+    canvas {
+      margin-top: 40px;
+      width: 100%;
+      height: 300px;
+      background: rgba(0,255,255,0.05);
+      border: 1px solid #00ffff44;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #00ffff33;
+      color: #88ddee;
+      background: #000914;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+
+    #particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      background: transparent;
+      overflow: hidden;
+    }
   </style>
 </head>
 <body>
+  <canvas id="particles"></canvas>
 
-  <!-- Navbar -->
-  <nav>
-    <div><strong>Matemática Interativa</strong></div>
-    <div>
-      <a href="#home">Início</a>
-      <a href="#conteudo">Conteúdo</a>
-      <a href="#ia">IA Matemática</a>
-    </div>
-  </nav>
+  <header>
+    <h1>Portal Matemática Futurista 💠</h1>
+    <p>Explore o poder da matemática com uma IA viva e interativa.</p>
+  </header>
 
-  <!-- Página inicial -->
-  <section id="home">
-    <h1>Bem-vindo à Matemática Interativa</h1>
-    <p>Aprenda matemática de forma fácil, divertida e visual. Explore tópicos desde aritmética até cálculo avançado, com exemplos e animações!</p>
+  <!-- Introdução detalhada -->
+  <section class="intro">
+    <h2>Bem-vindo ao Universo da Matemática Futurista</h2>
+    <p>
+      Aqui você vai explorar conceitos essenciais do 7º ano, mas de uma forma totalmente inovadora:
+      operações básicas, raiz quadrada, potência, logaritmos, funções trigonométricas e até
+      sequências como Fibonacci. Tudo isso com uma interface que combina tecnologia e interatividade,
+      permitindo que você veja os resultados em tempo real e até visualize gráficos de funções.
+    </p>
+    <p>
+      Esta IA futurista é capaz de calcular, gerar gráficos, responder dúvidas instantaneamente e
+      transformar seu aprendizado em uma experiência envolvente e imersiva. Digite qualquer operação
+      ou função matemática e veja a magia acontecer.
+    </p>
+    <p>
+      Prepare-se para entrar no portal da matemática do futuro, onde números ganham vida e cálculos
+      se tornam uma experiência visual e sonora inesquecível.
+    </p>
   </section>
 
-  <!-- Conteúdo -->
-  <section id="conteudo">
-    <h2>Seções de Aprendizado</h2>
+  <main>
+    <h2>Matemática do Futuro</h2>
+    <p>
+      Explore todas as operações: raiz quadrada, potência, logaritmos, trigonometria, Fibonacci e muito mais.
+      A IA está pronta para resolver qualquer desafio matemático que você tenha.
+    </p>
 
-    <div class="card">
-      <h3>Aritmética</h3>
-      <p>Operações básicas: soma, subtração, multiplicação e divisão. Aprenda com exemplos interativos.</p>
+    <ul>
+      <li>Operações: <code>+, -, *, /, ^</code></li>
+      <li>Funções: <code>raiz(), pow(), log(), ln(), sen(), cos(), tan()</code></li>
+      <li>Extras: <code>fatorial(), fibonacci(), aleatorio(), mmc(), mdc()</code></li>
+      <li>Constantes: <code>pi, e</code></li>
+      <li>Gráficos: desenhe funções como <code>sen(x)</code>, <code>x^2</code>, etc.</li>
+    </ul>
+
+    <div class="ai-box">
+      <h2>IA Matemática Neon</h2>
+      <p>Digite sua operação ou função:</p>
+      <input id="userInput" type="text" placeholder="Ex: sen(45), raiz(81), x^2, log(100)">
+      <br>
+      <button onclick="resolver()">Calcular</button>
+      <div id="output">Aguardando entrada...</div>
+      <canvas id="graph"></canvas>
     </div>
+  </main>
 
-    <div class="card">
-      <h3>Álgebra</h3>
-      <p>Resolução de equações, inequações e simplificação de expressões algébricas passo a passo.</p>
-    </div>
-
-    <div class="card">
-      <h3>Geometria</h3>
-      <p>Estude figuras, áreas, volumes e ângulos com exemplos visuais e exercícios práticos.</p>
-    </div>
-
-    <div class="card">
-      <h3>Funções e Gráficos</h3>
-      <p>Funções lineares, quadráticas e exponenciais com gráficos animados para facilitar o entendimento.</p>
-    </div>
-
-    <div class="card">
-      <h3>Cálculo</h3>
-      <p>Derivadas, integrais e limites explicados de forma clara, com exemplos resolvidos passo a passo.</p>
-    </div>
-  </section>
-
-  <!-- IA Matemática -->
-  <section id="ia">
-    <h2>IA Matemática</h2>
-    <p>Faça qualquer pergunta sobre matemática e receba explicações detalhadas e passo a passo.</p>
-
-    <div id="ia-container">
-      <div id="chat" style="display:flex; flex-direction:column;"></div>
-      <div id="input-area">
-        <input type="text" id="user-input" placeholder="Digite sua pergunta...">
-        <button onclick="sendMessage()">Enviar</button>
-      </div>
-    </div>
-  </section>
+  <footer>
+    Desenvolvido por <strong>[Seu Nome]</strong> © 2025 — Inteligência Matemática Neon 💠
+  </footer>
 
   <script>
-    // Animação de scroll das seções
-    const sections = document.querySelectorAll('section');
-    window.addEventListener('scroll', () => {
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 100) section.classList.add('show');
-      });
-    });
+    const clickSound = new Audio("https://cdn.jsdelivr.net/gh/itsrealfarhan/sfx-ui/click.mp3");
+    const calcSound = new Audio("https://cdn.jsdelivr.net/gh/itsrealfarhan/sfx-ui/confirm.mp3");
 
-    // IA Simples (simulação)
-    const chat = document.getElementById('chat');
-    const input = document.getElementById('user-input');
-
-    async function sendMessage() {
-      const userText = input.value.trim();
-      if(!userText) return;
-      
-      // Mensagem do usuário
-      const userMsg = document.createElement('div');
-      userMsg.className = 'message user';
-      userMsg.textContent = userText;
-      chat.appendChild(userMsg);
-      chat.scrollTop = chat.scrollHeight;
-      input.value = '';
-
-      // Mensagem da IA (simulação com delay)
-      const aiMsg = document.createElement('div');
-      aiMsg.className = 'message ai';
-      aiMsg.textContent = 'Calculando...';
-      chat.appendChild(aiMsg);
-      chat.scrollTop = chat.scrollHeight;
-
-      // Resposta simulada (pode integrar API real depois)
-      setTimeout(() => {
-        aiMsg.textContent = `Resposta passo a passo para: "${userText}"\n\n[Exemplo de solução detalhada aqui]`;
-      }, 1000);
+    function falar(texto) {
+      const fala = new SpeechSynthesisUtterance(texto);
+      fala.lang = "pt-BR";
+      fala.rate = 1.1;
+      fala.pitch = 1;
+      speechSynthesis.speak(fala);
     }
-  </script>
 
+    function fatorial(n) { if (n <= 1) return 1; return n * fatorial(n - 1); }
+    function fibonacci(n) { const seq=[0,1]; for(let i=2;i<n;i++) seq[i]=seq[i-1]+seq[i-2]; return seq.slice(0,n); }
+    function mdc(a,b){a=Math.abs(a);b=Math.abs(b);while(b)[a,b]=[b,a%b];return a;}
+    function mmc(a,b){return Math.abs(a*b)/mdc(a,b);}
+    function toRad(g){return g*(Math.PI/180);}
+
+    function resolver() {
+      clickSound.play();
+      const entrada = document.getElementById("userInput").value.toLowerCase().trim();
+      const saida = document.getElementById("output");
+      const ctx = document.getElementById("graph").getContext("2d");
+
+      try {
+        let expr = entrada
+          .replace(/raiz\(([^)]+)\)/g,"Math.sqrt($1)")
+          .replace(/pow\(([^,]+),([^)]+)\)/g,"Math.pow($1,$2)")
+          .replace(/sen\(([^)]+)\)/g,"Math.sin(toRad($1))")
+          .replace(/cos\(([^)]+)\)/g,"Math.cos(toRad($1))")
+          .replace(/tan\(([^)]+)\)/g,"Math.tan(toRad($1))")
+          .replace(/log\(([^)]+)\)/g,"Math.log10($1)")
+          .replace(/ln\(([^)]+)\)/g,"Math.log($1)")
+          .replace(/pi/g,"Math.PI")
+          .replace(/e/g,"Math.E")
+          .replace(/fatorial\(([^)]+)\)/g,"fatorial($1)")
+          .replace(/fibonacci\(([^)]+)\)/g,"fibonacci($1)")
+          .replace(/mmc\(([^,]+),([^)]+)\)/g,"mmc($1,$2)")
+          .replace(/mdc\(([^,]+),([^)]+)\)/g,"mdc($1,$2)")
+          .replace(/aleatorio\(\)/g,"Math.random()")
+          .replace(/\^/g,"**");
+
+        let resultado = eval(expr);
+        calcSound.play();
+        if(Array.isArray(resultado)) resultado = resultado.join(", ");
+        saida.innerText = "Resultado: "+resultado;
+        falar("O resultado é " + resultado);
+
+        if(entrada.includes("x")) desenhar(expr,ctx);
+        else ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
+
+      } catch {
+        saida.innerText = "Expressão inválida. Tente novamente.";
+        falar("Não consegui entender a expressão.");
+      }
+    }
+
+    function desenhar(expr,ctx){
+      ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
+      const w=ctx.canvas.width,h=ctx.canvas.height;
+      ctx.strokeStyle="#00ffff"; ctx.lineWidth=2; ctx.beginPath();
+      for(let px=0;px<w;px++){
+        const x=(px-w/2)/30; let y;
+        try{y=eval(expr.replace(/x/g,"("+x+")"));}catch{continue;}
+        const py=h/2 - y*30;
+        if(px===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+      }
+      ctx.stroke();
+    }
+
+    const canvas=document.getElementById("particles");const c=canvas.getContext("2d");
+    canvas.width=innerWidth;canvas.height=innerHeight;
+    const particles=Array.from({length:100},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*2+1,dx:(Math.random()-0.5)*1.5,dy:(Math.random()-0.5)*1.5}));
+    function drawParticles(){c.clearRect(0,0,canvas.width,canvas.height);for(let p of particles){c.beginPath();c.arc(p.x,p.y,p.r,0,Math.PI*2);c.fillStyle="#00ffff";c.fill();p.x+=p.dx;p.y+=p.dy;if(p.x<0||p.x>innerWidth)p.dx*=-1;if(p.y<0||p.y>innerHeight)p.dy*=-1;}requestAnimationFrame(drawParticles);}
+    drawParticles();
+  </script>
 </body>
 </html>
